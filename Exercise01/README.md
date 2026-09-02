@@ -37,18 +37,19 @@ which means that the height $f(x_0 \pm k) = 0.005$,
 ensuring that all neighboring points with at most $k$ units away in $\hat{x}$ gets a large weight if close to $x_0$ which steadily decreases as we go towards $x_0 \pm k$. We also put all values that further than $k$ units away from $x_0$ to zero. Having $k$ as an variable of distance instead of number of points away from $x_0$ helps with giving ease to the user if there are upwards of thousands observation points, making it otherwise much difficult to pick a precise range to choose from and the same holds if there are very few observations at a location, making it required to observe the data by eye each time you want to use the function at a new $x_0$ location.
 
 With appropriate values for $\hat{\beta_0}$ and $\hat{\beta_1}$ we calculate our prediction $pred$ at $x_0$ by
+
 $pred = \hat{\beta_0} + \hat{\beta_1}x_0$.
 
 To get the standard deviation $se$ we use our calculated $\hat{\beta_0}$ and $\hat{\beta_1}$ values at each non zero weighted $x$ observation and calculate a new array of $\hat{y}$ values that we then use to get the difference $e_i$ from the observed response variables $y$, $e_i = y_i - \hat{y_i}$ and its mean 
 
-$\bar{e} = \frac{1}{n}\displaystyle\sum_{i=1}^{n}e_i$ we have
+$\bar{e} = \frac{1}{n}\displaystyle\sum_{i=1}^{n}e_i \quad$ we have
 
-$se$ = \sqrt{\frac{1}{n-2}\displaystyle\sum_{i=1}^{n}e_i - \bar{e}$}.
+$se = \sqrt{\frac{1}{n-2}\displaystyle\sum_{i=1}^{n} (e_i - \bar{e})^2}$.
 
-Because of our two degrees of freedom utilized in $\hat{\beta_0}$ and $\hat{\beta_1}$ we get our $p=2$ for $\frac{1}{n-p}$ giving us $\frac{1}{n-2}$.
+From our two degrees of freedom utilized as $\hat{\beta_0}$ and $\hat{\beta_1}$ we get our $p=2$ for $\frac{1}{n-p}$ giving us $\frac{1}{n-2}$.
 
 
-The code is built so that it can take in multiple different $x0$ positions giving a prediction $pred$ with a standard deviation $se$ for each one given in order where for each new $x0$ a new pair of $\hat{\beta_0}$ and $\hat{\beta_1}$ are calculated as well.
+The code is built so that it can take in multiple different $x0$ positions resulting in a prediction $pred$ with a standard deviation $se$ for each one given in order. For each new $x0$, a new pair of $\hat{\beta_0}$ and $\hat{\beta_1}$ are calculated as well.
  
 ## Possible improvements
 A second loop can be built to get more accurate values for $\hat{\beta_0}$ and $\hat{\beta_1}$ by looping over an additional $\beta_{max} = 400$ values going from the closest neighboring two values to the one picked.
