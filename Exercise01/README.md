@@ -49,7 +49,7 @@ $se = \sqrt{\frac{1}{n-2}\displaystyle\sum_{i=1}^{n} (e_i - \bar{e})^2}$.
 From our two degrees of freedom utilized as $\hat{\beta_0}$ and $\hat{\beta_1}$ we get our $p=2$ for $\frac{1}{n-p}$ giving us $\frac{1}{n-2}$.
 
 
-The code is built so that it can take in multiple different $x0$ positions resulting in a prediction $pred$ with a standard deviation $se$ for each one given in order. For each new $x0$, a new pair of $\hat{\beta_0}$ and $\hat{\beta_1}$ are calculated as well.
+The code is built so that it can take in multiple different $x_0$ positions resulting in a prediction $pred$ with a standard deviation $se$ for each one given in order. For each new $x0$, a new pair of $\hat{\beta_0}$ and $\hat{\beta_1}$ are calculated as well.
  
 ## Possible improvements
 A second loop can be built to get more accurate values for $\hat{\beta_0}$ and $\hat{\beta_1}$ by looping over an additional $\beta_{max} = 400$ values going from the closest neighboring two values to the one picked.
