@@ -18,7 +18,7 @@ and the function returns
 - $\vec{se}$, a vector of standard deviations of the expected value of each predicted value.
 
 ## Technical details
-To make the local regression we use a linear model 
+To make the local regression we use a linear equation 
 $f(x)=\hat{\beta_0} + \hat{\beta_1} x$
 and we calculate $\\hat{\beta_0}$ and $\\hat{\beta_1}$ by solving for 
 $\hat{\beta_0}, \hat{\beta_1} = \text{argmin}(\hat{Q})$.
