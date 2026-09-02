@@ -19,6 +19,18 @@ and the function returns
 
 ## Technical details
 To make the local regression we use a linear model 
-$f(x)=\hat{\beta_0} + \hat{\beta_1} x_1$
-where we calculate $\\hat{\beta_0}$ and $\\hat{\beta_1}$ by solving for 
-$\hat{\beta_0}, \hat{\beta_1} = \text{argmin}\hat{Q}$.
+$f(x)=\hat{\beta_0} + \hat{\beta_1} x$
+and we calculate $\\hat{\beta_0}$ and $\\hat{\beta_1}$ by solving for 
+$\hat{\beta_0}, \hat{\beta_1} = \text{argmin}(\hat{Q})$.
+
+To get a good $\hat{\beta_0}$ and $\hat{\beta_1}$ pair of values we need check over a large variety of possible combination to get the right ones for
+
+$\hat{Q} = \displaystyle\sum_{i=1}^{\beta_{max}} \displaystyle\sum_{j=1}^{\beta_{max}} \displaystyle\sum_{g=1}^{n}  = \omega_g(y_k - \beta_{0i} - \beta_{1j}x_g)^2 $
+
+where $\omega_g$ is an appropriate weight assigned to $(x_g,y_g)$, $n$ is the nr. of points in the range $x_0 \pm k$ and as of release, the number of values for both $\hat{\beta_0}$ and $\hat{\beta_1}$ are $\beta_{max} = 400$ with values going from -1000 to 1000.
+
+To get our weights $\omega_g$ we use 
+$f(x) = e^{-Cx^2}$ where $C = -\ln(0.005)/k^2$ which means that the height $f(x_0 \pm k) = 0.005$ which ensures that all neighboring points with at most $k$ units away in $\hat{x}$ gets a large weight if close to $x_0$ which steadily decreases as we get to $x_0 \pm k$. We also put all values that further than $k$ units away from $x_0$ to zero. Having $k$ as an variable of distance instead of number of points away from $x_0$ helps with including many points, 
+
+## Possible improvements
+A second loop can be built to get more accurate values for $\hat{\beta_0}$ and $\hat{\beta_1}$ by looping over an additional $\beta_{max} = 400$ values going from the closest neighboring two values to the one picked.
