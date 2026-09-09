@@ -102,7 +102,7 @@ def initial_betas(a_L, a_U, b_L, b_U):
 
 # Need small x predictors when calculatin np.exp(b_0 + b_1*x)
 def minimize_x_inputs(x_predictor, x_ask):
-    x_ask = x_ask - np.min(x_predictor)
+    x_ask = x_ask - np.median(x_predictor)  # using the median is prefered since it results in the smallest values |x|
     return x_ask
 
 
@@ -140,8 +140,9 @@ def main(x, y, nr_of_samples):
 data = read_csv('/Users/martincloven/Documents/University/Computational Physics/BERN02/Repo/Martin-Clov-n---BERN02/Exercise02 - Generalised Linear Models/bird_count.csv')
 x = data[:,1]
 y = [data[:,0], data[:,2]]
-x_minimized = minimize_x_inputs(x,x)
+x_minimized = minimize_x_inputs(x,x)    # needs small x-values smaller than 50 for "np.exp(b_0 + b_1*x)" in: likelihood(x,y,b_0, b_1): 
 nr_of_samples = 3
+
 preds = main(x_minimized, y, nr_of_samples)
 
 for i in range(len(x)):
