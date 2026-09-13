@@ -1,4 +1,4 @@
-Here a short discusstion is provided of how this project is related to FAIR data principles.
+## Here a short discussion is provided of how this project is related to FAIR data principles.
 
 Starting at the Acronym F in FAIR, where F stand for "Findable" where gathered data is clearly stored under plots where we use standard metrics for showing the quality of the produced test of the neural network and the README gives a clear instruction list on what file does what and how to get started with using the provided coding tools. 
 This project does however not give an DOI for the provided ATLAS data which makes it very hard to identify and test that our used data is true and has not been tampered with. This project was also originaly posted in a private Gitlab branch which would make it "difficult" for other to find it in the first place. 
