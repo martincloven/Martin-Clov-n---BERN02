@@ -34,7 +34,7 @@ To get our weights $\omega_g$ we use
 $f(x) = e^{-Cx^2}$ where $C = -\ln(0.005)/k^2$ 
 
 which means that the height $f(x_0 \pm k) = 0.005$,
-ensuring that all neighboring points with at most $k$ units away in $\hat{x}$ gets a large weight if close to $x_0$ which steadily decreases as we go towards $x_0 \pm k$. We also put all values that further than $k$ units away from $x_0$ to zero. Having $k$ as an variable of distance instead of number of points away from $x_0$ helps with giving ease to the user if there are upwards of thousands observation points, making it otherwise much difficult to pick a precise range to choose from and the same holds if there are very few observations at a location, making it required to observe the data by eye each time you want to use the function at a new $x_0$ location.
+ensuring that all neighboring points with at most $k$ units away in the x-axis gets a large weight if close to $x_0$ which steadily decreases as we go towards $x_0 \pm k$. We also put all values that are further than $k$ units away from $x_0$ to zero. Having $k$ as an variable of distance instead of number of points away from $x_0$ helps with giving ease to the user if there are upwards of thousands observation points, making it otherwise much difficult to pick a precise range to choose from and the same holds if there are very few observations at a location, making it required to observe the data by eye each time you want to use the function at a new $x_0$ location.
 
 With appropriate values for $\hat{\beta_0}$ and $\hat{\beta_1}$ we calculate our prediction $pred$ at $x_0$ by
 
