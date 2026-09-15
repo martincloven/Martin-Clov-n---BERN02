@@ -40,11 +40,9 @@ With appropriate values for $\hat{\beta_0}$ and $\hat{\beta_1}$ we calculate our
 
 $pred = \hat{\beta_0} + \hat{\beta_1}x_0$.
 
-To get the standard deviation $se$ we use our calculated $\hat{\beta_0}$ and $\hat{\beta_1}$ values at each non zero weighted $x$ observation and calculate a new array of $\hat{y}$ values that we then use to get the difference $e_i$ from the observed response variables $y$, $e_i = y_i - \hat{y_i}$ and its mean 
+To get the standard deviation $se$ we use our calculated $\hat{\beta_0}$ and $\hat{\beta_1}$ values at each non zero weighted $x$ observation and calculate a new array of $\hat{y}$ values that we then use to get the difference $e_i$ from the observed response variables $y$, $e_i = y_i - \hat{y_i}$ where we then get our standard deviation $se$ to be 
 
-$\bar{e} = \frac{1}{n}\displaystyle\sum_{i=1}^{n}e_i \quad$ we have
-
-$se = \sqrt{\frac{1}{n-2}\displaystyle\sum_{i=1}^{n} (e_i - \bar{e})^2}$.
+$se = \sqrt{\frac{1}{n-2}\displaystyle\sum_{i=1}^{n} e_i^2}$.
 
 The two degrees of freedom utilized as $\hat{\beta_0}$ and $\hat{\beta_1}$ make $p=2$ for $\frac{1}{n-p}$ giving us the $\frac{1}{n-2}$.
 
