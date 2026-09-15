@@ -21,11 +21,11 @@ and the function returns
 To make the local regression we use a linear equation 
 $f(x)=\hat{\beta_0} + \hat{\beta_1} x$
 and we calculate $\\hat{\beta_0}$ and $\\hat{\beta_1}$ by solving for 
-$\hat{\beta_0}, \hat{\beta_1} = \text{argmin}(\hat{Q})$.
+$\hat{\beta_0}, \hat{\beta_1} = \text{argmin}(Q)$.
 
 To get a good $\hat{\beta_0}$ and $\hat{\beta_1}$ pair of values we need check over a large variety of possible combination to get the right ones for
 
-$\hat{Q} = \displaystyle\sum_{i=1}^{\beta_{max}} \displaystyle\sum_{j=1}^{\beta_{max}} \displaystyle\sum_{g=1}^{n}  = \omega_g(y_k - \beta_{0i} - \beta_{1j}x_g)^2 $
+$Q = \displaystyle\sum_{i=1}^{\beta_{max}} \displaystyle\sum_{j=1}^{\beta_{max}} \displaystyle\sum_{g=1}^{n}  = \omega_g(y_k - \beta_{0i} - \beta_{1j}x_g)^2 $
 
 where $\omega_g$ is an appropriate weight assigned to $(x_g,y_g)$, $n$ is the nr. of points in the range $x_0 \pm k$ and as of release, the number of values for both $\hat{\beta_0}$ and $\hat{\beta_1}$ are $\beta_{max} = 400$ with values going from -1000 to 1000.
 
