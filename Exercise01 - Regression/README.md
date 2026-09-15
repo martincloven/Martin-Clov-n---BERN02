@@ -9,7 +9,7 @@ return pred, se
 that takes in four variables: 
 - $\vec{y}$, a vector of observations of the response variable,
 - $\vec{x}$, a vector of observations of the predictor,
-- &nbsp; $k$, the distance to furthest neighboring observations of $\vec{x}$ to include in each local gregression,
+- &nbsp;$k$, the distance to furthest neighboring observations of $\vec{x}$ to include in each local gregression,
 - $\vec{x_0}$, a vectir if values for which a predictor is going to be made,
 
 and the function returns
