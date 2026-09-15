@@ -41,10 +41,17 @@ def standard_error(x0, x, y, y_pred, k):
 
     sum = 0
     n = len(e)
+    for i in range(n):
+        sum += (e[i])**2
+        
+    '''
+    sum = 0
+    n = len(e)
     e_avg = np.sum(e) / n
     for i in range(n):
         sum += (-e[i]+e_avg)**2
-
+    '''
+    
     se=np.sqrt(sum/(n-2))
 
     return se
