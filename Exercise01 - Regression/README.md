@@ -18,12 +18,15 @@ and the function returns
 - $\vec{se}$, a vector of standard deviations of the expected value of each predicted value.
 
 ## Technical details
-To make the local regression we use a linear equation 
-$f(x)=\hat{\beta_0} + \hat{\beta_1} x$
-and we calculate $\\hat{\beta_0}$ and $\\hat{\beta_1}$ by solving for 
-$\hat{\beta_0}, \hat{\beta_1} = \text{argmin}(Q)$.
+For our local regression we assume that our data follows a linear equation of $f(x)=\beta_0 + \beta_1 x$.
 
-To get a good $\hat{\beta_0}$ and $\hat{\beta_1}$ pair of values we need check over a large variety of possible combination to get the right ones for
+We use the "hat" sign as in e.g., $\hat{\beta_0}$ to denote our estimates of parameters allowing us to see if we are refering to the true values of a parameter or our derived estimations of them.
+
+By finding the smallest residual sum of squares (RSS) over a large variety of possible combinations of $\hat{\beta_0}$ and $\hat{\beta_1}$ values we will get the estimated parameters $\hat{\beta_0}$ and $\hat{\beta_1}$ that closest describe our observed data. Therefore we get 
+
+$\hat{\beta_0}, \hat{\beta_1} = \underset{\beta_0 , \beta_1}{\text{argmin}}(Q)$ 
+
+using
 
 $Q = \displaystyle\sum_{i=1}^{\beta_{max}} \displaystyle\sum_{j=1}^{\beta_{max}} \displaystyle\sum_{g=1}^{n}  = \omega_g(y_k - \beta_{0i} - \beta_{1j}x_g)^2 $
 
